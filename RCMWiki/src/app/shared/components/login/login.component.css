@@ -1,0 +1,32 @@
+﻿.login-box
+{
+	height: 50%;
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 10%;
+	position: relative;
+    font-family: Tahoma;
+}
+.login-header
+{
+    color: #5F453F;
+    font-family: Georgia,Times New Roman,serif;
+    font-size: large;
+    font-weight: normal;
+    padding-bottom:5px;
+    padding-top: 20px;
+    padding-left: 20px;
+	text-align: left;
+	position: relative;
+}
+.login-body
+{
+	padding-left: 20px;
+    padding-right: 20px;
+}
+h4 
+{
+    font-weight: normal;
+    font-size: 14px;
+    color: #0768A9;
+}

@@ -1,0 +1,127 @@
+﻿<div class="container" style="height:100%;">
+    <p-panel header="Overview" toggler="header" toggleable="true" collapsed="true" expandIcon="" collapseIcon="">
+        <div class="form-group">
+            <label class="control-label" for="purpose">Purpose</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="purpose" name="purpose" type="text" [ngModel]="product.Purpose" #purpose="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="apptype">Application Type</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="apptype" name="apptype" type="text" [ngModel]="product.ApplicationType" #apptype="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="aliases">Aliases</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="aliases" name="aliases" type="text" [ngModel]="product.Aliases" #aliases="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="keywords">Keywords</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="keywords" name="keywords" type="text" [ngModel]="product.Keywords" #keywords="ngModel"></textarea>
+            </div>
+        </div>
+    </p-panel>
+    <p-panel header="Support" toggler="header" toggleable="true" collapsed="true" expandIcon="" collapseIcon="">
+        <div class="form-group">
+            <label class="control-label" for="schedule">Process Schedule</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="schedule" name="schedule" type="text" [ngModel]="product.ProcessSchedule" #schedule="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="risks">Downtime Risks</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="risks" name="risks" type="text" [ngModel]="product.DowntimeRisks" #risks="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="comments">Comments</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="comments" name="comments" type="text" [ngModel]="product.Comments" #comments="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="impact">Business Impact</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="impact" name="impact" type="text" [ngModel]="product.BusinessImpact" #impact="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="idetails">Impact Details</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="idetails" name="idetails" type="text" [ngModel]="product.ImpactDetails" #idetails="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="interfaceto">Interfaces To</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="interfaceto" name="interfaceto" type="text" [ngModel]="product.InterfacesTo" #interfaceto="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="interfacefrom">Interfaces From </label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="interfacefrom" name="interfacefrom" type="text" [ngModel]="product.InterfacesFrom" #ifrom="ngModel"></textarea>
+            </div>
+        </div>
+    </p-panel>
+    <p-panel header="Contacts" toggler="header" toggleable="true" collapsed="true" expandIcon="" collapseIcon="">
+        <div class="form-group">
+            <label class="control-label" for="lob">LOB</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="lob" name="lob" type="text" [ngModel]="product.LOB" #lob="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="lobcontact">LOB Contact</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="lobcontact" name="lobcontact" type="text" [ngModel]="product.LOBContact" #lobcontact="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="vsupport">Vendor Support</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="vsupport" name="vsupport" type="text" [ngModel]="product.VendorSupport" #vsupport="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="vcontact">Vendor Contact</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="vcontact" name="vcontact" type="text" [ngModel]="product.VendorContact" #vcontact="ngModel"></textarea>
+            </div>
+        </div>
+    </p-panel>
+    <p-panel header="Environment" toggler="header" toggleable="true" collapsed="true" expandIcon="" collapseIcon="">
+        <div class="form-group">
+            <label class="control-label" for="scontrol">Source Control</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="scontrol" name="scontrol" type="text" [ngModel]="product.SourceControl" #scontrol="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="produrl">Prod URL</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="produrl" name="produrl" type="text" [ngModel]="product.ProdURL" #produrl="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="testurl">Test URL</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="testurl" name="testurl" type="text" [ngModel]="product.TestURL" #testurl="ngModel"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="documentation">Documentation</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" rows="1" id="documentation" name="documentation" type="text" [ngModel]="product.DocumentationURL" #documentation="ngModel"></textarea>
+            </div>
+        </div>
+    </p-panel>
+    <wiki-knowledgebase [appId]="product.ProductID"></wiki-knowledgebase>
+</div>
+
+

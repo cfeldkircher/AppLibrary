@@ -1,0 +1,14 @@
+﻿<div class="container-fluid">
+    <h4>Product Documentation &nbsp; <i *ngIf="folders.length!=0" class="fa fa-arrow-circle-up fa-lg" aria-hidden="true" (click)="folderUp()"></i></h4>
+    <table>
+        <tr>
+            <th > </th>
+            <th>Name</th>
+        </tr>
+        <tr *ngFor="let document of documentList">
+            <td></td>
+            <td *ngIf="document.type!=folder" style="padding-right:10px;" [title]="document.lastModified"><i [className]="document.ngClass" [style.color]="document.ngStyle" aria-hidden="true" style="padding-right:10px;"></i><a href="http://sp.ccf.org/{{document.relativeUrl}}" target="_blank">{{document.name}}</a></td>
+            <td *ngIf="document.type==folder" style="padding-right:10px;" (click)="selectFolder(document.name)"><i [className]="document.ngClass" [style.color]="document.ngStyle" aria-hidden="true" style="padding-right:10px;"></i>{{document.name}}</td>
+        </tr>
+    </table>
+</div>

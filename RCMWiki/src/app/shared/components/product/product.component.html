@@ -1,0 +1,39 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4>{{product.AppName}} Detail</h4>
+        </div>
+       <div class="col-md-4">
+           <div *ngIf="!isEdit" class="btn-group float-right mt-2" role="group">
+               <button type="button" (click)="displayDocs=true" class="ui-button-raised ui-button-secondary" pButton label="Documents"></button>&nbsp;
+               <button type="button" (click)="displayJira=true" class="ui-button-raised ui-button-secondary" pButton label="Jira Stories"></button>&nbsp;
+               <button type="button" (click)="isEdit=true" class="ui-button-raised ui-button-secondary" pButton label="Edit"></button>
+           </div>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="padding-top:10px;">
+            <div class="alert alert-danger" *ngIf="returnMessage!=null && !isSuccess">
+                {{returnMessage}}
+            </div>
+            <div class="alert alert-success" *ngIf="returnMessage!=null && isSuccess">
+                {{returnMessage}}
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top:10px;">
+        <div>
+            <wiki-productview *ngIf="!isEdit" [product]="product"></wiki-productview>
+            <wiki-productedit *ngIf="isEdit" [product]="product" (isEdit)="receiveIsEdit($event)" (returnMessage)="receiveMessage($event)" (isSuccess)="receiveIsSuccess($event)"></wiki-productedit>
+        </div>
+        <div>
+            <br />
+            <p-sidebar [(visible)]="displayDocs" position="right" styleClass="ui-sidebar-md">
+                <p-scrollPanel [style]="{height:'800px'}">
+                    <wiki-documentlist [product]="product.DocumentationURL"></wiki-documentlist>
+                </p-scrollPanel>
+            </p-sidebar>
+        </div>
+    </div>
+</div>
+

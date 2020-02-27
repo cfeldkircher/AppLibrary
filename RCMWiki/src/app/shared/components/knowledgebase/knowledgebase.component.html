@@ -1,0 +1,74 @@
+﻿<p-panel toggler="header" toggleable="true" collapsed="true" expandIcon="" collapseIcon="">
+    <p-header>
+        <div>
+            <span style="display:inline-block;">Knowledgebase&nbsp;({{itemCount}})</span>
+        </div>
+    </p-header>
+    <div>
+        <div style="padding-bottom:15px">
+            <button type="button" id="addKBItem" (click)="displayDialogAdd=true;f.reset();displayItemMessage=false;" pButton icon="fa fa-plus" title="Add knowledgebase item"></button>
+            <input style="float:right;width:40%;" type="text" id="searchTerm" [(ngModel)]="searchTerm" placeholder="search..." />
+        </div>
+        <p-panel *ngFor="let item of itemList | searchPipe:'Description': searchTerm" toggleable="false" expandIcon="" collapseIcon="" [style]="{'margin-bottom':'15px'}">
+            <p-header>
+                <span style="display:inline-block;font-weight:bold;">{{item.Summary}}</span><button (click)="displayDialogComment=true;newComment.ItemID=item.ItemID;" style="float:right;" type="button" pButton icon="fa fa-comment-o" title="Add comment"></button>
+                <br/><div class="col" style="font-size:smaller;">
+                    Entered by {{item.EnteredBy}} on {{item.EnteredDate | date: 'longDate'}}
+                </div>
+            </p-header>
+            <div>{{item.Description}}</div>
+            <p-footer *ngFor="let comment of commentList | arrayFilter: 'ItemID' : item.ItemID" style="padding-left:20px;">
+                <div class="row">
+                    <div class="col-sm-9">
+                        {{comment.Comment}}
+                    </div>
+                    <div class="col-sm-3">
+                        <div style="float:right; vertical-align:bottom;font-weight:bold;">-{{comment.EnteredBy}}&nbsp;on&nbsp;{{comment.EnteredDate | date : 'longDate'}}</div>
+                    </div>
+                </div>
+            </p-footer>
+        </p-panel>
+    </div>
+</p-panel>
+<p-dialog [(visible)]="displayDialogAdd" styleClass="dialog-style-class" [modal]="true" [baseZIndex]="10000">
+    <p-header>Add Item</p-header>
+    <div *ngIf="displayItemMessage" class="alert alert-danger">{{itemMessage}}</div>
+    <form novalidate #f="ngForm">
+        <div class="form-group">
+            <label class="control-label" for="summary">Summary</label>
+            <div>
+                <textarea pInputTextarea placeholder="summary" autoResize="autoResize" rows="1" id="summary" name="summary" type="text" [(ngModel)]="newItem.summary" required #summary="ngModel"></textarea>
+            </div>
+            <div class="alert alert-danger" *ngIf="summary.errors?.required && summary.touched">
+                Summary is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="description">Description</label>
+            <div style="height:auto;">
+                <textarea pInputTextarea placeholder="description" autoResize="autoResize" rows="1" id="description" name="description" type="text" [(ngModel)]="newItem.description"></textarea>
+            </div>
+        </div>
+    </form>
+    <p-footer>
+        <button [disabled]="!f.valid" type="button" class="ui-button-raised" pButton (click)="addItemClick()" label="Add"></button>
+    </p-footer>
+</p-dialog>
+<p-dialog [(visible)]="displayDialogComment" [responsive]="true" styleClass="dialog-style-class" [modal]="true" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p-header>Add Comment</p-header>
+    <div *ngIf="displayCommentMessage" class="alert alert-danger">{{commentMessage}}</div>
+    <form novalidate #cf="ngForm">
+        <div class="form-group">
+            <label class="control-label" for="comment">Comment</label>
+            <div>
+                <textarea pInputTextarea autoResize="autoResize" placeholder="comment" rows="1" id="comment" name="comment" type="text" [(ngModel)]="newComment.comment" required #comment="ngModel"></textarea>
+            </div>
+            <div class="alert alert-danger" *ngIf="comment.errors?.required && comment.touched">
+                Comment is required.
+            </div>
+        </div>
+    </form>
+    <p-footer>
+        <button [disabled]="!cf.valid" type="button" class="ui-button-raised" pButton (click)="addCommentClick(cf)" label="Add"></button>
+    </p-footer>
+</p-dialog>

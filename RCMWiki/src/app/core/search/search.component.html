@@ -1,0 +1,74 @@
+﻿<div class="container" >
+    <div class="col-md-12">
+        <div class="login">
+            <button id="logout" type="button" (click)="logOut()" pButton icon="fa fa-sign-out" title="Logout"></button>
+        </div>
+        <div class="btn-group" style="padding-bottom:15px;">
+            <button type="button" (click)="displayHome=true;homeClick();" pButton icon="fa fa-home" title="Home Page"></button>&nbsp;
+            <button type="button" (click)="display=true;getProductList();" pButton icon="fa fa-search" title="Search"></button>&nbsp;
+            <button type="button" pButton icon="fa fa-plus" (click)="addNewOne()" title="Add New Product"></button>
+        </div>
+        <br />
+        <p-sidebar [(visible)]="display">
+            <div class="form-group">
+                <input type="text" id="searchTerm" pInputText size="50" placeholder="search..." [formControl]="searchTerm" (input)="productTable.filterGlobal($event.target.value, 'contains')" style="width:90%;">
+            </div>
+            <p-scrollPanel [style]="{height:'30%'}">
+                <p-table #productTable id="productTable" [value]="productList" [globalFilterFields]="columns" selectionMode="single" [(selection)]="selectedProduct" dataKey="ProductID"
+                         [resizableColumns]="true" sortMode="multiple" (onRowSelect)="display=false" (onFilter)="onFilter($event, productTable)">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th [pSortableColumn]="AppName">Product Results ({{productCount}})</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr [pSelectableRow]="product">
+                            <td (click)="selectedProduct=product.DocumentURL;displayHome=false;"><span style="font-size:smaller;">{{product.AppName}}</span></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-scrollPanel>
+            <p-scrollPanel [style]="{height:'30%'}">
+                <p-table #documentTable id="documentTable" [value]="documentList"  selectionMode="single" [(selection)]="selectedDocument" 
+                         [resizableColumns]="true" sortMode="multiple" (onRowSelect)="display=false">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th [pSortableColumn]="title">Document Results ({{documentCount}})</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-document>
+                        <tr [pSelectableRow]="document">
+                            <td><span style="font-size:smaller;"><i [className]="document.ngClass" [style.color]="document.ngStyle" aria-hidden="true" style="padding-right:10px;"></i><a href="{{document.path}}" target="_blank">{{document.title}}</a></span></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-scrollPanel>
+            <p-scrollPanel [style]="{height:'30%'}">
+                <p-table #storyTable id="storyTable" [value]="storyList" selectionMode="single" [(selection)]="selectedStory"
+                         [resizableColumns]="true" sortMode="multiple">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th [pSortableColumn]="issue">Jira Results ({{storyCount}})</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-story>
+                        <tr [pSelectableRow]="story">
+                            <td><span style="font-size:smaller;">{{story.issue}} {{story.summary}}</span></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-scrollPanel>
+        </p-sidebar>
+    </div>
+    <div style="padding-top:20px">
+        <div *ngIf="displayHome">
+            <wiki-home></wiki-home>
+        </div>
+        <div *ngIf="selectedProduct != null && displayHome != true">
+            <wiki-product [product]="selectedProduct"></wiki-product>
+        </div>
+        <div *ngIf="addNew">
+            <wiki-productedit [product]="newProduct"></wiki-productedit>
+        </div>
+    </div>
+</div>

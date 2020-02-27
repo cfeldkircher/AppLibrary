@@ -1,0 +1,44 @@
+﻿
+<!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<form>
+    <fieldset>
+        <div class="form-group">
+            <select id="select">
+                <option>CC</option>
+            </select>
+            <input id="userName" class="form-control input-sm chat-input" placeholder="username" name="userName" required />
+        </div>
+        <div class="alert alert-danger" *ngIf="userName.errors?.required && userName.touched">
+            Username required.
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="password" class="form-control input-sm chat-input" id="password" name="password" placeholder="password" required />
+        </div>
+        <div class="alert alert-danger" *ngIf="password.errors?.required && password.touched">
+            Password is required.
+        </div>
+        <div class="wrapper">
+            <span class="group-btn">
+                <button type="submit" class="btn btn-primary btn-md"></button>
+            </span>
+        </div>
+    </fieldset>
+</form>-->
+    <div class="login-box" *ngIf="!userLoggedIn">
+        <div class="login-header">Login</div>
+        <div class="login-body">
+            <form class="form-group">
+                <h4><label>Username</label></h4>
+                <input type="text" class="form-control" [(ngModel)]="user.userName" name="userName">
+                <h4><label>Password</label></h4>
+                <input type="password" class="form-control" [(ngModel)]="user.userPassword" name="userPassword">
+                <br />
+                <input type="button" value="login" class="form-control btn" style="background-color:#0768A9;color:white;"  name="" (click)="onSubmit()" >
+            </form>
+        </div>
+    </div>
+
+
+
+

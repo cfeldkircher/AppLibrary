@@ -1,0 +1,9 @@
+﻿.ui-panel-titlebar-icon {
+	float: left !important;
+	margin-right: 5px;
+}
+textarea{
+    width:100%;
+    border:none;
+    height:100%;
+}

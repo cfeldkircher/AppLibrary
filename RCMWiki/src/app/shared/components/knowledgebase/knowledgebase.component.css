@@ -1,0 +1,8 @@
+﻿.dialog-style-class {
+    width: 60%;
+}
+
+textarea{
+    width:100%;
+    min-height:35px;
+}

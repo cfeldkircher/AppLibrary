@@ -1,0 +1,13 @@
+﻿input{
+    width:90%;
+    border:none;
+}
+textarea{
+    width:90%;
+    border:none;
+}
+h4{
+    color:green;
+    font-weight:bold;
+    font-style:italic;
+}

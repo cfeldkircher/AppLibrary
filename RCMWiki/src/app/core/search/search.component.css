@@ -1,0 +1,10 @@
+﻿.ui-table * {
+     border : 0px !important;
+}
+.login
+{
+	float:right;
+	font-size:10pt;
+	color:Gray;
+	vertical-align:top;
+}
